@@ -1,33 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primaryColor: CupertinoColors.activeBlue,
-          // primarySwatch: Colors.blue,
-        ),
-        // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        home: const MyOwnHomePage());
-  }
-}
-
-class MyOwnHomePage extends StatefulWidget {
-  const MyOwnHomePage({Key? key}) : super(key: key);
+class ApiTesterPage extends StatefulWidget {
+  const ApiTesterPage({Key? key}) : super(key: key);
 
   @override
-  State<MyOwnHomePage> createState() => _MyOwnHomePageState();
+  State<ApiTesterPage> createState() => _ApiTesterPageState();
 }
 
-class _MyOwnHomePageState extends State<MyOwnHomePage> {
+class _ApiTesterPageState extends State<ApiTesterPage> {
   int _selectedIndex = 0;
 
   @override
@@ -35,59 +16,6 @@ class _MyOwnHomePageState extends State<MyOwnHomePage> {
     double _cardRadius = 8;
     double _cardPadding = 18;
     final double _statusBarHeight = MediaQuery.of(context).padding.top;
-
-    // app data list
-    var _appList = [
-      {
-        'title': 'Flutter',
-        'subtitle':
-            'Flutter is Google\'s UI toolkit for crafting high-quality native interfaces on iOS and Android in record time.',
-        'image': 'assets/flutter.png',
-        'color': CupertinoColors.activeBlue,
-      },
-      {
-        'title': 'Dart',
-        'subtitle':
-            'Dart is a general-purpose programming language developed by Google.',
-        'image': 'assets/dart.png',
-        'color': CupertinoColors.activeGreen,
-      },
-      {
-        'title': 'React',
-        'subtitle':
-            'React is a JavaScript library for building user interfaces.',
-        'image': 'assets/react.png',
-        'color': CupertinoColors.activeOrange,
-      },
-      {
-        'title': 'Vue',
-        'subtitle':
-            'Vue.js is an open-source progressive JavaScript framework for building user interfaces.',
-        'image': 'assets/vue.png',
-        'color': CupertinoColors.systemPurple,
-      },
-      {
-        'title': 'Angular',
-        'subtitle':
-            'Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google.',
-        'image': 'assets/angular.png',
-        'color': CupertinoColors.systemIndigo,
-      },
-      {
-        'title': 'Flutter',
-        'subtitle':
-            'Flutter is Google\'s UI toolkit for crafting high-quality native interfaces on iOS and Android in record time.',
-        'image': 'assets/flutter.png',
-        'color': CupertinoColors.activeBlue,
-      },
-      {
-        'title': 'Dart',
-        'subtitle':
-            'Dart is a general-purpose programming language developed by Google.',
-        'image': 'assets/dart.png',
-        'color': CupertinoColors.activeGreen,
-      },
-    ];
 
     final pages = <Widget>[
       Container(
@@ -313,22 +241,6 @@ class _MyOwnHomePageState extends State<MyOwnHomePage> {
                           Text('Top games this week',
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.bold)),
-                          // show app list below
-                          Container(
-                            height: 200,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: _appList.length,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  height: 50,
-                                  child: Center(
-                                      child: Text(
-                                          'Entry ${_appList[index]['title']}')),
-                                );
-                              },
-                            ),
-                          )
                         ]),
                   ),
                 ),
